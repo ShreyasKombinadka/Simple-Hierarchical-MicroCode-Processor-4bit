@@ -1,11 +1,39 @@
-**Register file**
+# **Register file**
+
+A basic register file with minimal number of registers and operations.
+
+### Build
+- The register file consists of 3 registers,
+1. General purpose - A & B
+2. Specia purpose - OP
+- All three registers are connected to a single shared 4bit bus.
+- The registers can perform specific operations,
+1. A & B  -> Load immediate and Read & Write to the bus
+2. OP -> Load immediate and Write to the bus
+- The read write operations are controlled by a register control block which enables te required register operations based on the instruction given.
+- The instruction are given to the decoder in hex form where it is decoded to produce the requiered control signals.
+
 ---
-1. The register file consists of 3 registers,
-- General purpose - A & B
-- Specia purpose - OP
-2. All three registers are connected to a single shared 4bit bus.
-3. The registers can perform specific operations,
-- A & B  -> Load immediate and Read & Write to the bus
-- OP -> Load immediate and Write to the bus
-4. The read write operations are controlled by a register control block which enables te required register operations based on the instruction given.
-5. The instruction are given to the decoder in hex form where it is decoded to produce the requiered control signals.
+ 
+### Instruction set
+
+| Opcode | Operation          |
+|:------:|:------------------:|
+| 0000   | NOP                |
+| 0001   | LDI A              |
+| 0010   | LDI B              |
+| 0011   | LDI OP             |
+| 0100   | MOV BUS, A         |
+| 0101   | MOV BUS, B         |
+| 0110   | MOV A, BUS         |
+| 0111   | MOV B, BUS         |
+| 1000   | MOV OP, BUS        |
+| 1001   | MOV A, B           |
+| 1010   | MOV B, A           |
+| 1011   | MOV OP, A          |
+| 1100   | MOV OP, B          |
+| 1111   | CLEAR              |
+
+---
+### Elaborated design
+![Failed](./schematics/schematic.png "Loading...")
