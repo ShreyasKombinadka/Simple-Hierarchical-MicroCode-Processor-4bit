@@ -11,7 +11,7 @@ begin
     
     if( ~instr_o[7] & instr_o[4] )  // The instruction for jump statement
     begin
-        instr = 8'b0_00_0_1000 ; // FLAG -> BUS
+        instr = 8'b0_00_0_1010 ; // FLAG -> BUS
 
         case ( instr_o[6:5] )
             2'b01 : pc_count = ( ~bus[0] ) ? instr_o[3:0] : 0 ; // JNZ (jump if not equal to zero)
