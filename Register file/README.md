@@ -2,10 +2,13 @@
 
 A basic register file with minimal number of registers and operations.
 
-### Build
+### Overview :
 - The register file consists of 3 registers,
 1. General purpose - A & B
 2. Specia purpose - OP
+- Contains two resets,
+1. GRST -> Global reset (Hardware reset)
+2. LRST -> Local reset (Software reset)
 - All three registers are connected to a single shared 4bit bus.
 - The registers can perform specific operations,
 1. A & B  -> Load immediate and Read & Write to the bus
@@ -14,8 +17,13 @@ A basic register file with minimal number of registers and operations.
 - The instruction are given to the decoder in hex form where it is decoded to produce the requiered control signals.
 
 ---
+
+### Elaborated design :
+![Failed to load the image](./schematics/schematic.png "Loading...")
+
+---
  
-### Instruction set
+### Instruction set :
 
 | Opcode | Operation          |
 |:------:|:------------------:|
@@ -35,5 +43,3 @@ A basic register file with minimal number of registers and operations.
 | 1111   | CLEAR              |
 
 ---
-### Elaborated design
-![Failed](./schematics/schematic.png "Loading...")
