@@ -1,5 +1,6 @@
 module regA (
-    input clk, grst, lrst,
+    input clk,
+    input grst, lrst,   // Global and Local reset
     input [3:0] imm,   // Immediate value
     input rs1,rs2,ws1,  // Tristate buffer control signals
     inout [3:0] bus  // Data BUS

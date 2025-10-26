@@ -1,5 +1,6 @@
 module Register_file (
-    input clk, grst,    // Clock and Global reset
+    input clk,
+    input grst,    // Global reset
     input [3:0] imm,    // Immediate value
     input [3:0] instr,  // Instruction
     inout [3:0] bus // Data bus

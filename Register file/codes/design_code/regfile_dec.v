@@ -2,10 +2,10 @@ module regfile_dec(
     input [3:0] instr,  // Instruction input
     output [2:0] rs,    // Read select
     output [1:0] ws,    // Write select
-    output rst          // Reset
+    output rst          // Reset ( LRST )
 );
 
-reg [5:0] ctrl ;
+reg [5:0] ctrl ;    // Control bits
 
 always @( * )
 begin
@@ -35,8 +35,8 @@ end
 //-----------------------------------------------------
 // Register control
 //-----------------------------------------------------
-assign rs = ctrl[2:0] ;
-assign ws = ctrl[4:3] ;
-assign rst = ctrl[5] ;
+assign rs = ctrl[2:0] ; // Read select
+assign ws = ctrl[4:3] ; // Write select
+assign rst = ctrl[5] ;  // LRST
 
 endmodule

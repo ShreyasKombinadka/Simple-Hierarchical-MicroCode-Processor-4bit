@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
 module Register_file_tb ;
-reg clk ;
-reg grst ;
-reg [3:0] imm ;
-reg [3:0] instr ;
-wire [3:0] bus ;
+reg clk ;   // Clock
+reg grst ;  // Global reset
+reg [3:0] imm ; // Immediate value
+reg [3:0] instr ;   // Instruction
+wire [3:0] bus ;    // Data bus
 
 reg bus_read ;  // Enable bus read
 reg [3:0] bus_temp ;    // Temporary bus value
