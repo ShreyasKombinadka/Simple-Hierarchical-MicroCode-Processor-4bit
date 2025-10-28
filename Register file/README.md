@@ -19,7 +19,7 @@ A basic register file with minimal number of registers and operations.
 ---
 
 ### **Elaborated design :**
-![Failed to load the image](./schematics/schematic.png "Loading...")
+![Failed to load the image!](./schematics/schematic.png "Loading...")
 
 ---
  
@@ -40,6 +40,8 @@ A basic register file with minimal number of registers and operations.
 | A        | MOV B, A           |
 | B        | MOV OP, A          |
 | C        | MOV OP, B          |
+| D        | NOP                |
+| E        | NOP                |
 | F        | CLEAR              |
 
 ---
@@ -82,4 +84,4 @@ end
 
 #### **Waveform :**
 
-![Failed to load the image](./waveform/waveform.png "Loading...")
+![Failed to load the image!](./waveform/waveform.png "Loading...")
