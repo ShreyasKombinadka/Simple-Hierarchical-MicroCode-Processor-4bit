@@ -21,7 +21,7 @@ begin
     clk = 0 ; grst = 1 ; instr = 4'h0 ; bus_write = 0 ; bus_temp = 4'h0 ;  // Initial condition
     @( negedge clk ) ; grst = 0 ; bus_write = 1 ; bus_temp = 4'h4 ; instr = 4'h1 ; // MOV BUS -> X1
     @( negedge clk ) ; bus_temp = 4'h1 ; instr = 4'h2 ; // MOV BUS -> X2
-    for( i = 1 ; i < 8 ; i = i + 1 )
+    for( i = 1 ; i < 8 ; i = i + 1 )    // Loop to step through all the logic operations
     begin
         @( negedge clk ) ; bus_temp = i ; instr = 4'h3 ;    // MOV BUS -> X3
         @( negedge clk ) ; instr = 4'h4 ;   // LOGIC
