@@ -21,7 +21,7 @@ The design could have been built with more registers but this is a simple start,
 ---
 
 ### **Elaborated design :**
-![Failed to load the image!](./schematics/schematic.png "Loading...")
+![Failed to load the image!](./doc/schematic.png "Loading...")
 
 ---
  
@@ -86,4 +86,4 @@ end
 
 #### **Waveform :**
 
-![Failed to load the image!](./waveform/waveform.png "Loading...")
+![Failed to load the image!](./doc/waveform.png "Loading...")
