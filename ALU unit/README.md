@@ -42,10 +42,10 @@ The operation count is reduced to make the instruction allocation easier!!!
 | 4        | LOGIC              |
 | 5        | ADD                |
 | 6        | SUB                |
-| 7        | MOV R -> BUS       |
-| 8        | MOV F -> BUS       |
-| 9        | MOV R -> X1        |
-| A        | MOV R -> X2        |
+| 7        | MOV R, BUS         |
+| 8        | MOV F, BUS         |
+| 9        | MOV R, X1          |
+| A        | MOV R, X2          |
 | B        | NOP                |
 | C        | NOP                |
 | D        | NOP                |
@@ -60,7 +60,6 @@ The operation count is reduced to make the instruction allocation easier!!!
 ```sv ,
 {
     reg clk, grst,    // Clock and Global reset
-    reg [3:0] imm,    // Immediate value
     reg [3:0] instr,  // Instruction
     wire [3:0] bus // Data bus
     
