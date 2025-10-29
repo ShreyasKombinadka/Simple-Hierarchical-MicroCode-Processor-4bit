@@ -27,7 +27,7 @@ The operation count is reduced to make the instruction allocation easier!!!
 ---
 
 ### **Elaborated design :**
-![Failed to load the image!](./schematic/schematic.png "Loading...")
+![Failed to load the image!](./doc/schematic.png "Loading...")
 
 ---
  
@@ -93,4 +93,4 @@ end
 
 #### **Waveform :**
 
-![Failed to load the image!](./waveform/waveform.png "Loading...")
+![Failed to load the image!](./doc/waveform.png "Loading...")
