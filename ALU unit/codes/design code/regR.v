@@ -1,5 +1,6 @@
 module regR (   // The result register
-    input clk, grst, lrst,
+    input clk,
+    input grst, lrst,   // Global and Local reset
     input [1:0] op_sel,  // Operation enable for ALU
     input ws1, ws2,  // Enable for writing to the BUS
     input Z, C, O, N,   // Flags from ALU

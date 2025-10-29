@@ -1,6 +1,8 @@
 # **Register file**
 
-A basic register file with minimal number of registers and operations.
+A basic register file with three registers and few operations.
+
+The design could have been built with more registers but this is a simple start, so i kept it smaller and fewer!!!
 
 ### **Overview :**
 - The register file consists of 3 registers,

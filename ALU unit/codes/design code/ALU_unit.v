@@ -1,5 +1,6 @@
 module ALU_unit (
-    input clk, grst,
+    input clk,
+    input grst, // Global reset
     input [3:0] instr,  // Instruction
     inout [3:0] bus // Data bus
 );
@@ -11,8 +12,8 @@ module ALU_unit (
 wire [1:0] rs_dec ; // Decoded read select
 wire [1:0] ws_dec ; // Decoded write select
 wire [1:0] op_sel_dec ; // Decoded alu operation selector
-wire rst_dec ;  // Decoded reset
-alu_dec ROM_decoder ( .instr(instr), .rs(rs_dec), .ws(ws_dec), .op_sel(op_sel_dec), .rst(rst_dec) );
+wire rst_dec ;  // Local reset
+alu_dec ALU_decoder ( .instr(instr), .rs(rs_dec), .ws(ws_dec), .op_sel(op_sel_dec), .rst(rst_dec) );
 
 
 //--------------------------------------------------------------------------------
@@ -20,7 +21,7 @@ alu_dec ROM_decoder ( .instr(instr), .rs(rs_dec), .ws(ws_dec), .op_sel(op_sel_de
 //--------------------------------------------------------------------------------
 wire rs1_en, rs2_en, rs3_en ;   // Read enable signals
 wire ws1_en, ws2_en ;   // Write enable signals
-alu_ctrl Register_controll ( .rs(rs_dec), .ws(ws_dec), .rs1(rs1_en), .rs2(rs2_en), .rs3(rs3_en), .ws1(ws1_en), .ws2(ws2_en) );
+alu_ctrl ALU_reg_ctrl ( .rs(rs_dec), .ws(ws_dec), .rs1(rs1_en), .rs2(rs2_en), .rs3(rs3_en), .ws1(ws1_en), .ws2(ws2_en) );
 
 
 //-----------------------------------------------------

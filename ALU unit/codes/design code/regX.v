@@ -1,5 +1,6 @@
 module regX (   // ALU input handling registers
-    input clk, grst, lrst,
+    input clk,
+    input grst, lrst,   // Global and Local reset
     input rs1, rs2, rs3,
     inout [3:0] bus,    // Data bus
     output [3:0] opA,   // A operand
