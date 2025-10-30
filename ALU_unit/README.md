@@ -1,7 +1,7 @@
 # **Arithmetic & Logic unit**
 
 The ALU unit in this design can perform all the logic logic operations and two arithmetic operations.
-The operation count is reduced to make the instruction allocation easier!!!
+The operation count is reduced to make the instruction allocation easier..!
 
 ### **Overview :**
 - The ALU with two registers forms the data operation and storage unit,

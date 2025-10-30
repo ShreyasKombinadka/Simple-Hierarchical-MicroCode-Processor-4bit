@@ -2,7 +2,7 @@
 
 A basic register file with three registers and few operations.
 
-The design could have been built with more registers but this is a simple start, so i kept it smaller and fewer!!!
+The design could have been built with more registers but this is a simple start, so i kept it smaller and fewer..!
 
 ### **Overview :**
 - The register file consists of 3 registers,
