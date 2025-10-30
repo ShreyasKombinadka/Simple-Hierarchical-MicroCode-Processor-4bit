@@ -42,8 +42,8 @@ The design could have been built with more registers but this is a simple start,
 | A        | MOV B, A           |
 | B        | MOV OP, A          |
 | C        | MOV OP, B          |
-| D        | NOP                |
-| E        | NOP                |
+| D        | (reserved)         |
+| E        | (reserved)         |
 | F        | CLEAR              |
 
 ---

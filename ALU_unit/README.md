@@ -1,6 +1,6 @@
-# **Arithmatic & Logic unit**
+# **Arithmetic & Logic unit**
 
-The ALU unit in this design can perform all the logic logic operations and two arithmatic operations.
+The ALU unit in this design can perform all the logic logic operations and two arithmetic operations.
 The operation count is reduced to make the instruction allocation easier!!!
 
 ### **Overview :**
@@ -20,7 +20,7 @@ The operation count is reduced to make the instruction allocation easier!!!
     1. X  -> Read from bus and directly forward the value to ALU
     2. R -> Read the ALU output and write to bus
     3. F -> Store flags set by the ALU and write to the bus
-- The logic operations are controlled by the opcode but the arithmatic operations have there own dedicated instructions.
+- The logic operations are controlled by the opcode but the arithmetic operations have their own dedicated instructions.
 - The read write operations are controlled by a register control block which enables te required register operations based control signals given by the decoder.
 - The instruction are given to the decoder in hex form where it is decoded to produce the requiered control signals.
 
@@ -46,10 +46,10 @@ The operation count is reduced to make the instruction allocation easier!!!
 | 8        | MOV F, BUS         |
 | 9        | MOV R, X1          |
 | A        | MOV R, X2          |
-| B        | NOP                |
-| C        | NOP                |
-| D        | NOP                |
-| E        | NOP                |
+| B        | (reserved)         |
+| C        | (reserved)         |
+| D        | (reserved)         |
+| E        | (reserved)         |
 | F        | CLEAR              |
 
 ---
