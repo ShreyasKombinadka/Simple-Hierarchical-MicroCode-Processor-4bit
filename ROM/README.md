@@ -1,10 +1,16 @@
 # **ROM**
 
-
+Built to controll different operations through 3 subroms.
 
 ### **Overview :**
 
-- 
+- Consists of three sub ROMs for different operations,
+    1. AR ROM - General ALU and Register operations.
+    2. IMM ROM - Immediate value loading.
+    3. MEM ROM - Memory operations.
+- Based on the instruction given the required subROM will be enabled by a control block.
+- The enabled subROM will produce the required control signals for the Register and ALU blocks.
+- The control signal will be multiplixed using the enable signal to pass only the required control signals to the lower blocks.
 
 ---
 
@@ -13,9 +19,40 @@
 
 ---
  
-### **Instruction set :**
+### **Instruction :**
 
-#### **AR ROM :**
+#### **Instruction classification**
+
+##### **AR ROM :**
+
+| instr bits     |Vlaue  |  function               |
+|:--------------:|:-----:|:-----------------------:|
+| instr[7]       | 0     |          ---            |
+| instr[6:5]     | 00    |          ---            |
+| instr[4]       | 0     |          ---            |
+| instr[3:0]     | XXXX  | Instructions            |
+
+##### **AR ROM :**
+
+| instr bits     |Vlaue  |  function               |
+|:--------------:|:-----:|:-----------------------:|
+| instr[7]       | 0     |          ---            |
+| instr[6:5]     | XX    | Register select         |
+| instr[4]       | 0     |          ---            |
+| instr[3:0]     | XXXX  | Immediate value         |
+
+##### **MEM ROM :**
+
+| instr bits     |Vlaue  |  function               |
+|:--------------:|:-----:|:-----------------------:|
+| instr[7]       | 1     | Memory operation enable |
+| instr[6:5]     | XX    | Register select         |
+| instr[4]       | X     | Read - Write select     |
+| instr[3:0]     | XXXX  | Memory location         |
+
+#### **Instruction mapping :**
+
+##### **AR ROM :**
 
 | Instr[3:0] | Operation          |
 |:----------:|:------------------:|
@@ -36,7 +73,7 @@
 | E          | (reserved)         |
 | F          | CLEAR              |
 
-#### **IMM ROM :**
+##### **IMM ROM :**
 
 | Instr[6:5] | Operation          |
 |:----------:|:------------------:|
@@ -45,7 +82,7 @@
 | 2          | LDI B & X2         |
 | 3          | LDI OP & X3        |
 
-#### **MEM ROM :**
+##### **MEM ROM :**
 
 > Note :- The MEM rom only controlls the register part of the  operations to assist in data movements, it only writes to the data to bus or reads data from the bus and memory writing and reading are done by the RAM itself depending on the instruction given, by reading or writing data to the bus.
 
