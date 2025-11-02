@@ -15,15 +15,15 @@ initial
 begin
 
     instr = 0 ;
-    @( negedge tb_clk ) ; instr = 8'h02 ;   // MOV A, X1
-    @( negedge tb_clk ) ; instr = 8'h0C ;   // ADD
-    @( negedge tb_clk ) ; instr = 8'h23 ;   // LDI A, 3
-    @( negedge tb_clk ) ; instr = 8'h48 ;   // LDI B, 8
-    @( negedge tb_clk ) ; instr = 8'h66 ;   // LDI OP, 6
-    @( negedge tb_clk ) ; instr = 8'hBA ;   // MOV A, MEM[10]
-    @( negedge tb_clk ) ; instr = 8'hF5 ;   // MOV R, MEM[5]
-    @( negedge tb_clk ) ; instr = 8'h38 ;   // JNZ 8
-    @( negedge tb_clk ) ; instr = 8'h76 ;   // J 6
+    @( negedge tb_clk ) ; instr = 8'h02 ;   // MOV A, X1 ; AR ROM operation
+    @( negedge tb_clk ) ; instr = 8'h0C ;   // ADD ; AR ROM operation
+    @( negedge tb_clk ) ; instr = 8'h23 ;   // LDI A, 3 ; IMM ROM operation
+    @( negedge tb_clk ) ; instr = 8'h48 ;   // LDI B, 8 ; IMM ROM operation
+    @( negedge tb_clk ) ; instr = 8'h66 ;   // LDI OP, 6 ; IMM ROM operation
+    @( negedge tb_clk ) ; instr = 8'hBA ;   // MOV A, MEM[10] ; MEM ROM operation
+    @( negedge tb_clk ) ; instr = 8'hF5 ;   // MOV R, MEM[5] ; MEM ROM operation
+    @( negedge tb_clk ) ; instr = 8'h38 ;   // JNZ instrmem[8] ; PC control operation should be ignored by the ROM
+    @( negedge tb_clk ) ; instr = 8'h76 ;   // J instrmem[6] ; PC control operation should be ignored by the ROM
     @( negedge tb_clk ) ; $finish ;
 
 end

@@ -1,6 +1,6 @@
 # **ROM**
 
-Built to controll different operations through 3 subroms.
+Built to controll different operations of lower blocks using control signals produced by the 3 subroms.
 
 ### **Overview :**
 
@@ -11,6 +11,7 @@ Built to controll different operations through 3 subroms.
 - Based on the instruction given the required subROM will be enabled by a control block.
 - The enabled subROM will produce the required control signals for the Register and ALU blocks.
 - The control signal will be multiplixed using the enable signal to pass only the required control signals to the lower blocks.
+- Finally the selected control signal will be decoded and passed as instruction to the Register file and ALU unit.
 
 ---
 
@@ -25,30 +26,30 @@ Built to controll different operations through 3 subroms.
 
 ##### **AR ROM :**
 
-| instr bits     |Vlaue  |  function               |
+| instr bits     |Value  |  function               |
 |:--------------:|:-----:|:-----------------------:|
 | instr[7]       | 0     |          ---            |
-| instr[6:5]     | 00    |          ---            |
+| instr[6:5]     | 0     |          ---            |
 | instr[4]       | 0     |          ---            |
-| instr[3:0]     | XXXX  | Instructions            |
+| instr[3:0]     | 0-F   | Instructions            |
 
 ##### **AR ROM :**
 
-| instr bits     |Vlaue  |  function               |
+| instr bits     |Value  |  function               |
 |:--------------:|:-----:|:-----------------------:|
 | instr[7]       | 0     |          ---            |
-| instr[6:5]     | XX    | Register select         |
+| instr[6:5]     | 0-3   | Register select         |
 | instr[4]       | 0     |          ---            |
-| instr[3:0]     | XXXX  | Immediate value         |
+| instr[3:0]     | 0-F   | Immediate value         |
 
 ##### **MEM ROM :**
 
-| instr bits     |Vlaue  |  function               |
+| instr bits     |Value  |  function               |
 |:--------------:|:-----:|:-----------------------:|
 | instr[7]       | 1     | Memory operation enable |
-| instr[6:5]     | XX    | Register select         |
-| instr[4]       | X     | Read - Write select     |
-| instr[3:0]     | XXXX  | Memory location         |
+| instr[6:5]     | 0-3   | Register select         |
+| instr[4]       | 0-1   | Read - Write select     |
+| instr[3:0]     | 0-F   | Memory location         |
 
 #### **Instruction mapping :**
 
@@ -116,18 +117,19 @@ Built to controll different operations through 3 subroms.
 begin
 
     instr = 0 ;
-    @( negedge tb_clk ) ; instr = 8'h02 ;   // MOV A, X1
-    @( negedge tb_clk ) ; instr = 8'h0C ;   // ADD
-    @( negedge tb_clk ) ; instr = 8'h23 ;   // LDI A, 3
-    @( negedge tb_clk ) ; instr = 8'h48 ;   // LDI B, 8
-    @( negedge tb_clk ) ; instr = 8'h66 ;   // LDI OP, 6
-    @( negedge tb_clk ) ; instr = 8'hBA ;   // MOV A, MEM[10]
-    @( negedge tb_clk ) ; instr = 8'hF5 ;   // MOV R, MEM[5]
-    @( negedge tb_clk ) ; instr = 8'h38 ;   // JNZ 8
-    @( negedge tb_clk ) ; instr = 8'h76 ;   // J 6
+    @( negedge tb_clk ) ; instr = 8'h02 ;   // MOV A, X1 ; AR ROM operation
+    @( negedge tb_clk ) ; instr = 8'h0C ;   // ADD ; AR ROM operation
+    @( negedge tb_clk ) ; instr = 8'h23 ;   // LDI A, 3 ; IMM ROM operation
+    @( negedge tb_clk ) ; instr = 8'h48 ;   // LDI B, 8 ; IMM ROM operation
+    @( negedge tb_clk ) ; instr = 8'h66 ;   // LDI OP, 6 ; IMM ROM operation
+    @( negedge tb_clk ) ; instr = 8'hBA ;   // MOV A, MEM[10] ; MEM ROM operation
+    @( negedge tb_clk ) ; instr = 8'hF5 ;   // MOV R, MEM[5] ; MEM ROM operation
+    @( negedge tb_clk ) ; instr = 8'h38 ;   // JNZ instrmem[8] ; PC control operation should be ignored by the ROM
+    @( negedge tb_clk ) ; instr = 8'h76 ;   // J instrmem[6] ; PC control operation should be ignored by the ROM
     @( negedge tb_clk ) ; $finish ;
 
 end
+
 ```
 
 #### **Waveform :**
