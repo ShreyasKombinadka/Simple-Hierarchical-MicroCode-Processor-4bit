@@ -1,15 +1,14 @@
 `timescale 1ns/1ps
 
 module Datapath_tb ;
-reg clk, grst ;
-reg [7:0] instr ;
-wire [3:0] bus ;
+reg clk, grst ; // Clock and Reset
+reg [7:0] instr ;   // Instruction
+wire [3:0] bus ;    // Databus
 
 
 Datapath dut ( .clk(clk), .grst(grst), .instr(instr), .bus(bus) );
 
 initial clk = 0 ;
-
 always #5  clk = ~clk ; 
 
 initial

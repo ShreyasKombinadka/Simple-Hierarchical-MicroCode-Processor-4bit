@@ -1,5 +1,5 @@
 module Datapath (
-    input clk, grst,
+    input clk, grst,    // Clock and Reset
     input [7:0] instr,  // Instruction
     inout [3:0] bus // Data bus
 );
