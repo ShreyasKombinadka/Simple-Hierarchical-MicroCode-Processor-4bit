@@ -1,6 +1,6 @@
 module ctrl_unit (
     input clk, rst,
-    input state,    // State of the CPU
+    input state,    // State of the processor
     input load, // Enable for instruction load
     input [7:0] instr_i,    // Instruction input
     output [7:0] instr, // Instruction for the datapath
