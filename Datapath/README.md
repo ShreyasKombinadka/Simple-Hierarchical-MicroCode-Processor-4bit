@@ -35,11 +35,11 @@ Combines Register file, ALU unit, RAM and ROM to form the complete dataflow path
 | 20 - 2F	| LDI A & X1         |
 | 40 - 4F	| LDI B & X2         |
 | 60 - 6F	| LDI OP & X3        |
-| A0-AF	    | MOV MEM, A         |
-| B0-BF	    | MOV A, MEM         |
-| C0-CF	    | MOV MEM, B         |
-| D0-DF	    | MOV B, MEM         |
-| F0-FF	    | MOV R, MEM         |
+| A0 - AF	| MOV MEM, A         |
+| B0 - BF	| MOV A, MEM         |
+| C0 - CF	| MOV MEM, B         |
+| D0 - DF	| MOV B, MEM         |
+| F0 - FF	| MOV R, MEM         |
 
 ---
 
