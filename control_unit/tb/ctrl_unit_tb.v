@@ -16,6 +16,7 @@ always #5 clk = ~clk ;
 
 initial
 begin
+
     rst = 1 ; state = 0 ; load = 0 ; instr_i = 0 ; temp_load = 0 ; temp = 0 ;
     @( negedge clk ) ; rst = 0 ; load = 1 ; instr_i = 8'b0_01_0_1001 ; // test sequence(Should be passed directly to Datapath)
     @( negedge clk ) ; instr_i = 8'b0_10_0_0010 ;   // test sequence(Should be passed directly to Datapath)
@@ -28,12 +29,12 @@ begin
     @( negedge clk ) ; load = 0 ; instr_i = 8'b0_10_0_1111 ;   // test sequence(Should be passed directly to Datapath)
     
     @( negedge clk ) ; state = 1 ;  // Run the code
-    @( negedge clk ) ; temp_load = 1 ; temp = 4'b0000 ;
+    @( negedge clk ) ; temp_load = 1 ; temp = 4'b0000 ; // Set zero flag low
     #150 ; 
-    @( negedge clk ) ; temp_load = 1 ; temp = 4'b0001 ;
+    @( negedge clk ) ; temp_load = 1 ; temp = 4'b0001 ; // Set zero flag high
 
-    
     #200 ; $finish ;
+
 end
 
 assign bus = ( temp_load ) ? temp : 4'bZ ;
