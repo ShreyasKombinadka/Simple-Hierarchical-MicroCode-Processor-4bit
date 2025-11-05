@@ -19,18 +19,19 @@ Combines Register file, ALU unit, RAM and ROM to form the complete dataflow path
 | Hex code  | Operation          |
 |:---------:|:------------------:|
 | 00        | NOP                |
-| 01        | LDI A              |
-| 02        | LDI B              |
-| 03        | LDI OP             |
-| 04        | MOV BUS, A         |
-| 05        | MOV BUS, B         |
-| 06        | MOV A, BUS         |
-| 07        | MOV B, BUS         |
-| 08        | MOV OP, BUS        |
-| 09        | MOV A, B           |
-| 0A        | MOV B, A           |
-| 0B        | MOV OP, A          |
-| 0C        | MOV OP, B          |
+| 01        | MOV A, B           |
+| 02        | MOV A, X1          |
+| 03        | MOV B, A           |
+| 04        | MOV B, X2          |
+| 05        | MOV OP, X3         |
+| 06        | MOV R, A           |
+| 07        | MOV R, X1          |
+| 08        | MOV R, B           |
+| 09        | MOV R, X2          |
+| 0A        | MOV F, BUS         |
+| 0B        | LOGIC              |
+| 0C        | ADD                |
+| 0D        | SUB                |
 | 0F        | CLEAR              |
 | 20 - 2F	| LDI A & X1         |
 | 40 - 4F	| LDI B & X2         |
