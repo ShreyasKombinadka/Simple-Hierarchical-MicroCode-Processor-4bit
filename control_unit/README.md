@@ -32,8 +32,8 @@ The master control block for the Datapath unit.
 
 | Hex code | Operation          |
 |:--------:|:------------------:|
-| 30-3F	   | JNZ                |
-| 70-7F	   | J                  |
+| 30 - 3F  | JNZ                |
+| 70 - 7F  | J                  |
 
 
 ---
