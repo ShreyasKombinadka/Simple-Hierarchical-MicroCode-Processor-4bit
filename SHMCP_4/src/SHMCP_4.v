@@ -1,8 +1,8 @@
 module SHMCP_4 (  // SHMCP - Simple Hierarchical MicroCode Processor
-    input clk, rst,
+    input clk, rst, // Clock and Reset
     input state,    // State of the CPU
     input load, // Enable for instruction load
-    input [7:0] instr,    // Instruction input
+    input [7:0] instr    // Instruction input
 );
 
 //-----------------------------------------------------

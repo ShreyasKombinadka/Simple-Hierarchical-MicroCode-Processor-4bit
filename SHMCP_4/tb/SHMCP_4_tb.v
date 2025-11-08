@@ -1,8 +1,8 @@
 module CPU4_tb ;
-reg clk, rst ;
-reg state ;
-reg load ;
-reg [7:0] instr ;
+reg clk, rst ;  // Clock and Reset
+reg state ; // Enable for instruction load
+reg load ;  // Instruction load enable
+reg [7:0] instr ;   // Instruction input
 
 SHMCP_4 dut ( .clk(clk), .rst(rst), .state(state), .load(load), .instr(instr) );
 
@@ -19,8 +19,10 @@ initial begin
     @( negedge clk ) ; instr = 8'h07 ;  // R -> X1
     @( negedge clk ) ; instr = 8'h34 ;  // JNZ
     @( negedge clk ) ; instr = 8'h06 ;  // R -> A
+    @( negedge clk ) ; instr = 8'h00 ;  // NOP
+    
     #10
-    @( negedge clk ) ; state = 1 ; load = 0 ;
+    @( negedge clk ) ; state = 1 ; load = 0 ; // Run the programm
     #400 ; $finish ;
 
 end
