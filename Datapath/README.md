@@ -3,9 +3,14 @@
 Combines Register file, ALU unit, RAM and ROM to form the complete dataflow path and control it.
 
 ### **Overview :**
-- Connects all the lower blocks.
-- By combining all the lower blocks makes it easier to interface with the main coontrol unit.
-- The instructions will be given to the Datapath by the control unit where it will be passed to the lower blocks.
+- Connects all the data blocks.
+- By combining all the data blocks makes it easier to interface with the main coontrol unit.
+- The instructions will be given to the Datapath by the control unit where it will be passed to the data units.
+- For more info on each part,   
+    [**ROM**](https://github.com/ShreyasKombinadka/Simple-Hierarchical-MicroCode-Processor-4bit/tree/main/ROM)    
+    [**Register file**](https://github.com/ShreyasKombinadka/Simple-Hierarchical-MicroCode-Processor-4bit/tree/main/Register_file)    
+    [**ALU unit**](https://github.com/ShreyasKombinadka/Simple-Hierarchical-MicroCode-Processor-4bit/tree/main/ALU_unit)    
+    [**RAM**](https://github.com/ShreyasKombinadka/Simple-Hierarchical-MicroCode-Processor-4bit/tree/main/RAM)
 
 ---
 
